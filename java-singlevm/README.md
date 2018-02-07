@@ -98,6 +98,19 @@ docker run -it stacksmith bash
 
 Then you are able to execute the "/app/boot.sh" and the "/app/run.sh" in order to investigate the problem running the server.
 
+#### JAVA_HOME is not defined
+
+```
+Error: JAVA_HOME is not defined correctly.
+  We cannot execute java
+```
+
+If you need to run any java command in any of those scripts, you probably need to define the JAVA_HOME environment variable before.
+
+```
+export JAVA_HOME=/usr/lib/jvm
+```
+
 #### The server is running but the app is not deployed correctly
 
 The main Tomcat log file is shown in the output directly. It could be possible you need to add extra libraries in Tomcat "shared/" folder or configure the memory properly.

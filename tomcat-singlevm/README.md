@@ -2,7 +2,7 @@
 
 This guide walks you through the process of using Docker to build and test your Java application locally before uploading it to Stacksmith.
 
-### TL;DR;
+### TL;DR
 
 Clone this repository, copy your WAR file into the `app/` directory and run the following commands:
 

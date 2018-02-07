@@ -8,7 +8,7 @@ Clone this repo, copy your war file into the "app/" folder and run the following
 
 ```
 docker build . -t stacksmith
-docker run run -it --rm -p 8080:8080 stacksmith
+docker run -it --rm -p 8080:8080 stacksmith
 
 ```
 You should now able to see the app running at http://localhost:8080/NAME Where NAME is the name of the war file.
@@ -28,11 +28,16 @@ COPY ./app /app
 WORKDIR /app
 ENV UPLOADS_DIR /app
 
-# Build script
+# Tomcat installation and war deployment
 RUN chmod 755 *.sh && ./build-stacksmith.sh
+
+# Build script
 RUN ./build.sh
 
+# Boot script
 ENTRYPOINT ["/app/boot.sh"]
+
+# Start Tomcat
 CMD ["/app/run.sh"]
 ```
 

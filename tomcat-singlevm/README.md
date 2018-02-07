@@ -56,7 +56,7 @@ echo "=== FINISH BUILD SCRIPT ==="
 
 ### Step 3: Define the `boot.sh` script
 
-This script is executed at boot time. In this case, all it does is configure the JAVA_OPTS variable, but you can add other steps to it as well if needed.
+This script is executed at boot time. In this case, all it does is configure the `JAVA_OPTS` variable, but you can add other steps to it as well if needed.
 
 ```
 #!/bin/bash

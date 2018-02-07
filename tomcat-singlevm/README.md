@@ -1,6 +1,6 @@
-## Build and Debug a Tomcat Application Locally Before Using It with Stacksmith
+## Build and Debug a Java/Tomcat Application Locally Before Using It with Stacksmith
 
-This guide walks you through the process of using Docker to build and test your Java application locally before uploading it to Stacksmith.
+This guide walks you through the process of using Docker to build and test your Java/Tomcat application locally before uploading it to Stacksmith.
 
 ### TL;DR
 

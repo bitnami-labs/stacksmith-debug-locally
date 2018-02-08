@@ -1,0 +1,27 @@
+version: '2'
+
+services:
+  app:
+    build: .
+    image: stacksmith-mean
+    environment:
+      - DATABASE_HOST=mongodb
+      - DATABASE_PORT=27017
+      - DATABASE_NAME=bitnami_todo
+      - DATABASE_USER=bn_todo
+      - DATABASE_PASSWORD=bitnami1234
+    # We will wait 15 seconds for MongoDB to start
+    command: sh -c "sleep 15 && /run.sh"
+    depends_on:
+      - mongodb
+    ports:
+      - 3000:3000
+
+  mongodb:
+    image: 'bitnami/mongodb:latest'
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_USERNAME=bn_todo
+      - MONGODB_PASSWORD=bitnami1234
+      - MONGODB_DATABASE=bitnami_todo

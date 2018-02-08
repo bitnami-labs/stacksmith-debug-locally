@@ -1,0 +1,23 @@
+version: '2'
+services:
+  postgresql:
+    image: 'bitnami/postgresql:latest'
+    environment:
+      - POSTGRESQL_DATABASE=mydatabase
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=mypassword
+    volumes:
+      - 'postgresql_data:/bitnami'
+  stacksmith:
+    build: .
+    ports:
+      - '8080:8080'
+    environment:
+      - DATABASE_NAME=mydatabase
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=mypassword
+    depends_on:
+      - postgresql
+volumes:
+  postgresql_data:
+    driver: local

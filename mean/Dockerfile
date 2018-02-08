@@ -5,7 +5,7 @@ ENV PATH=/opt/node-v8.9.4-linux-x64/bin:$PATH \
     UPLOADS_DIR=/app
 
 # Install required system packages
-RUN yum install -y wget which
+RUN yum install -y wget
 
 # Install node
 RUN wget https://nodejs.org/dist/v8.9.4/node-v8.9.4-linux-x64.tar.xz && \

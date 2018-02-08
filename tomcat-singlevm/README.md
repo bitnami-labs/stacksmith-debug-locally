@@ -63,8 +63,7 @@ This script is executed at boot time. In this case, all it does is configure the
 set -euo pipefail
 
 #Configure JAVA_OPTS
-echo "JAVA_OPTS=\"-Djava.awt.headless=true -Xmx512m\"" >> /usr/share/tomcat/conf/tomcat.co
-nf
+echo "JAVA_OPTS=\"-Djava.awt.headless=true -Xmx512m\"" >> /usr/share/tomcat/conf/tomcat.conf
 
 echo "=== FINISH BOOT SCRIPT ==="
 exec "$@"
@@ -93,33 +92,7 @@ Once the builds are complete, you can find more information about how to deploy 
 Run the container in interactive mode to debug the issue:
 
 ```
-docker run -it stacksmith bash
+docker run -it stacksmith-mean bash
 ```
 
-At the container console, execute the `/app/boot.sh` and the `/app/run.sh` scripts manually in order to investigate the problem.
-
-#### The `JAVA_HOME` variable is not defined
-
-You may see the following error:
-
-```
-Error: JAVA_HOME is not defined correctly.
-  We cannot execute java
-```
-
-Resolve this by defining the `JAVA_HOME` environment variable in your scripts before executing any Java commands, as in the example below:
-
-```
-export JAVA_HOME=/usr/lib/jvm
-```
-
-#### The server is running but the application is not deployed correctly
-
-The main Tomcat log is directly shown in the container output. Use this log to identify and resolve the error with the application. Typically, this occurs because of missing libraries in the Tomcat `shared/` directory or because of incorrect memoryconfiguration.
-
-For example, after reviewing the log entry below, it should be clear that the error can be resolved by configuring the `hibernate properties` file correctly.
-
-```
-2018-02-06 17:09:49,371 ERROR ContextLoader,localhost-startStop-1:331 - Context initialization failed
-org.springframework.beans.factory.BeanInitializationException: Could not load properties; nested exception is java.io.FileNotFoundException: Could not open ServletContext resource [/WEB-INF/hibernate.properties]
-```
+At the container console, execute the `/boot.sh` and the `/run.sh` scripts manually in order to investigate the problem.

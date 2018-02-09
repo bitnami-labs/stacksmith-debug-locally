@@ -13,6 +13,7 @@ services:
     ports:
       - '8080:8080'
     environment:
+      - DATABASE_HOST=postgresql
       - DATABASE_NAME=mydatabase
       - DATABASE_USER=postgres
       - DATABASE_PASSWORD=mypassword

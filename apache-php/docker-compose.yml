@@ -1,0 +1,25 @@
+version: '2'
+services:
+  mysql:
+    image: 'bitnami/mysql:latest'
+    environment:
+      - MYSQL_DATABASE=mydatabase
+      - MYSQL_USER=db_user
+      - MYSQL_PASSWORD=mypassword
+      - MYSQL_ROOT_PASSWORD=rootpassword
+    volumes:
+      - 'mysql_data:/bitnami'
+  stacksmith:
+    build: .
+    environment:
+      - DATABASE_NAME=mydatabase
+      - DATABASE_USER=db_user
+      - DATABASE_PASSWORD=mypassword
+      - DATABASE_HOST=mysql
+    ports:
+      - '80:8080'
+    depends_on:
+      - mysql
+volumes:
+  mysql_data:
+    driver: local

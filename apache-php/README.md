@@ -33,10 +33,8 @@ This script is executed at build time. You can add any software you need from th
 #!/bin/bash
 
 yum install -y httpd
-systemctl start httpd.service
 systemctl enable httpd.service
 yum install -y php
-systemctl restart httpd.service
 yum install -y php-mysql 
 
 echo "==== FINISH BUILD SCRIPT ===="
@@ -60,7 +58,6 @@ echo "=== DATABASE ENV VARS ==="
 echo "DATABASE_HOST: ${DATABASE_HOST}"
 echo "DATABASE_NAME: ${DATABASE_NAME}"
 echo "DATABASE_USER: ${DATABASE_USER}"
-echo "DATABASE_PASSWORD: ${DATABASE_PASSWORD}"
 exec "$@"
 ```
 
@@ -69,8 +66,8 @@ exec "$@"
 After adding your PHP Application to the "app/" folder and customizing the scripts, you can build the docker image to run it locally. The following commands should be executed in the same folder of the "Dockerfile".
 
 ```
-docker build . -t stacksmith
-docker run run -it --rm -p 80:8080 stacksmith
+docker-compose build 
+docker-compose up
 ```
 
 You can access your web application at http://localhost:8080. 

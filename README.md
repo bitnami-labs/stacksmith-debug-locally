@@ -1,4 +1,4 @@
-# Stacksmith Application Debugging Examples
+# Stacksmith Packaging Examples
 
 This repository hosts various Stacksmith examples and guides designed to make you familiar with developing Stacksmith boot and build scripts for different types of applications. It also includes guidance on how to troubleshoot and debug packaging issues locally.
 

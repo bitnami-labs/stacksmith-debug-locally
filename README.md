@@ -1,6 +1,17 @@
-# stacksmith-debug-locally
-Stacksmith examples and guides for developing the Stacksmith scripts and troubleshoot issues locally.
+# Stacksmith Packaging Examples
 
+This repository hosts various Stacksmith examples and guides designed to familiarize you with Stacksmith's boot and build scripts. It also includes guidance on how to troubleshoot and debug packaging issues locally for different types of applications.
+
+Use the included examples to learn about:
+
+* [Building, packaging and debugging Apache/PHP applications](apache-php/)
+* [Building, packaging and debugging MEAN/MERN applications](mean/)
+* [Building, packaging and debugging Tomcat applications](tomcat-singlevm/)
+* [Building, packaging and debugging Tomcat/PostgreSQL applications](tomcat-postgresql/)
+
+All the examples in this repository use Docker with CentOS 7 and include sample boot/build scripts that you can use as the basis of your own packaging efforts with Stacksmith.
+
+[Learn more about automated application packaging with Stacksmith](https://bitnami.com/application-packaging).
 
 # License
 
